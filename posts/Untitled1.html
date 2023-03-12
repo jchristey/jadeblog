@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>jadeblog – untitled1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">jadeblog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>WHOdata <span class="op">=</span> pd.read_csv(<span class="st">'/home/jovyan/DH140FinalProject/WHOdata.csv'</span>,encoding<span class="op">=</span><span class="st">'latin-1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>WHOdata.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>PUBLISH STATES (string)</th>
+      <th>Year (string)</th>
+      <th>WHO region (string)</th>
+      <th>Country (string)</th>
+      <th>Births attended by skilled health personnel (%) (string)</th>
+      <th>Births attended by skilled health personnel (%) (numeric)</th>
+      <th>Births attended by skilled health personnel (%) (comment)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (string)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (numeric)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (low)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (high)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (comment)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Published</td>
+      <td>2000</td>
+      <td>Africa</td>
+      <td>Algeria</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>161 [ 115 - 225 ]</td>
+      <td>161.0</td>
+      <td>115.0</td>
+      <td>225.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Published</td>
+      <td>2000</td>
+      <td>Africa</td>
+      <td>Angola</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>827 [ 576 - 1 180 ]</td>
+      <td>827.0</td>
+      <td>576.0</td>
+      <td>1180.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Published</td>
+      <td>2000</td>
+      <td>Africa</td>
+      <td>Benin</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>520 [ 427 - 633 ]</td>
+      <td>520.0</td>
+      <td>427.0</td>
+      <td>633.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Published</td>
+      <td>2000</td>
+      <td>Africa</td>
+      <td>Botswana</td>
+      <td>98.5</td>
+      <td>98.5</td>
+      <td>Cadres included align with the standard defini...</td>
+      <td>262 [ 227 - 298 ]</td>
+      <td>262.0</td>
+      <td>227.0</td>
+      <td>298.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Published</td>
+      <td>2000</td>
+      <td>Africa</td>
+      <td>Burkina Faso</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>516 [ 415 - 638 ]</td>
+      <td>516.0</td>
+      <td>415.0</td>
+      <td>638.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>WHOdata.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>PUBLISH STATES (string)</th>
+      <th>Year (string)</th>
+      <th>WHO region (string)</th>
+      <th>Country (string)</th>
+      <th>Births attended by skilled health personnel (%) (string)</th>
+      <th>Births attended by skilled health personnel (%) (numeric)</th>
+      <th>Births attended by skilled health personnel (%) (comment)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (string)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (numeric)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (low)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (high)</th>
+      <th>Maternal mortality ratio (per 100 000 live births) (comment)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3690</th>
+      <td>Published</td>
+      <td>2001-2003</td>
+      <td>Europe</td>
+      <td>Luxembourg</td>
+      <td>99.9</td>
+      <td>99.9</td>
+      <td>Institutional Birth (IB): includes all deliver...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3691</th>
+      <td>Published</td>
+      <td>2021</td>
+      <td>Africa</td>
+      <td>Niger</td>
+      <td>43.6</td>
+      <td>43.6</td>
+      <td>Definition includes other cadres that is not i...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3692</th>
+      <td>Published</td>
+      <td>2021</td>
+      <td>Western Pacific</td>
+      <td>Fiji</td>
+      <td>99.8</td>
+      <td>99.8</td>
+      <td>Unclear definition of the cadres included. Fij...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3693</th>
+      <td>Published</td>
+      <td>2019-2021</td>
+      <td>South-East Asia</td>
+      <td>India</td>
+      <td>89.4</td>
+      <td>89.4</td>
+      <td>Definition includes other cadres that is not i...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3694</th>
+      <td>Published</td>
+      <td>2020-2021</td>
+      <td>Western Pacific</td>
+      <td>Viet Nam</td>
+      <td>96.1</td>
+      <td>96.1</td>
+      <td>Unclear definition of the cadres included. Vie...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>US <span class="op">=</span> WHOdata.loc[WHOdata[<span class="st">'Country (string)'</span>]<span class="op">==</span><span class="st">'United States'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>US.plot(x<span class="op">=</span><span class="st">'Year (string)'</span>, y<span class="op">=</span><span class="st">'Maternal mortality ratio (per 100 000 live births) (numeric)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>&lt;AxesSubplot: xlabel='Year (string)'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled1_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>WHOdata_2018 <span class="op">=</span> WHOdata.loc[WHOdata[<span class="st">'Year (string)'</span>]<span class="op">==</span><span class="st">'2018'</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'0-10'</span>, <span class="st">'10-20'</span>, <span class="st">'20-30'</span>, <span class="st">'30-40'</span>, <span class="st">'40-50'</span>, <span class="st">'50-60'</span>, <span class="st">'60-70'</span>, <span class="st">'70-80'</span>, <span class="st">'80-90'</span>, <span class="st">'90-100'</span>] <span class="co"># Updated labels list</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.hist(WHOdata_2018[<span class="st">'Births attended by skilled health personnel (%) (numeric)'</span>], bins<span class="op">=</span>bins, color<span class="op">=</span><span class="st">'purple'</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.xticks(bins, labels)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Births attended by skilled personnel'</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: The number of FixedLocator locations (11), usually from a call to set_ticks, does not match the number of ticklabels (10).</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled1_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>WHOdata_2002 <span class="op">=</span> WHOdata.loc[WHOdata[<span class="st">'Year (string)'</span>]<span class="op">==</span><span class="st">'2002'</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'0-10'</span>, <span class="st">'10-20'</span>, <span class="st">'20-30'</span>, <span class="st">'30-40'</span>, <span class="st">'40-50'</span>, <span class="st">'50-60'</span>, <span class="st">'60-70'</span>, <span class="st">'70-80'</span>, <span class="st">'80-90'</span>, <span class="st">'90-100'</span>] <span class="co"># Updated labels list</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.hist(WHOdata_2002[<span class="st">'Births attended by skilled health personnel (%) (numeric)'</span>], bins<span class="op">=</span>bins, color<span class="op">=</span><span class="st">'purple'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.xticks(bins, labels)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Births attended by skilled personnel'</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: The number of FixedLocator locations (11), usually from a call to set_ticks, does not match the number of ticklabels (10).</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled1_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>WHOdata_2002 <span class="op">=</span> WHOdata.loc[WHOdata[<span class="st">'Year (string)'</span>]<span class="op">==</span><span class="st">'2002'</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>lower_WHOdata_2002 <span class="op">=</span> WHOdata_2002.loc[WHOdata_2002[<span class="st">'Births attended by skilled health personnel (%) (numeric)'</span>]<span class="op">&lt;=</span><span class="dv">90</span>]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>]</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'0-10'</span>, <span class="st">'10-20'</span>, <span class="st">'20-30'</span>, <span class="st">'30-40'</span>, <span class="st">'40-50'</span>, <span class="st">'50-60'</span>, <span class="st">'60-70'</span>, <span class="st">'70-80'</span>, <span class="st">'80-90'</span>, <span class="st">'90-100'</span>] <span class="co"># Updated labels list</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.hist(lower_WHOdata_2002[<span class="st">'Births attended by skilled health personnel (%) (numeric)'</span>], bins<span class="op">=</span>bins, color<span class="op">=</span><span class="st">'purple'</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.xticks(bins, labels)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Births attended by skilled personnel'</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: The number of FixedLocator locations (11), usually from a call to set_ticks, does not match the number of ticklabels (10).</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled1_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>WorldBank <span class="op">=</span> pd.read_csv(<span class="st">'/home/jovyan/DH140FinalProject/WorldBankIncome.csv'</span>,encoding<span class="op">=</span><span class="st">'latin-1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>WorldBank.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Code</th>
+      <th>DisplayValue</th>
+      <th>URL</th>
+      <th>DS</th>
+      <th>FIPS</th>
+      <th>IOC</th>
+      <th>ISO2</th>
+      <th>ISO</th>
+      <th>ITU</th>
+      <th>MARC</th>
+      <th>...</th>
+      <th>LANGUAGES_EN_2012</th>
+      <th>WHO_REGION</th>
+      <th>WHO_REGION_CODE</th>
+      <th>World Bank income group</th>
+      <th>World Bank income group code</th>
+      <th>SHORTNAMEES</th>
+      <th>SHORTNAMEFR</th>
+      <th>WHOLEGALSTATUS</th>
+      <th>World Bank income group GNI reference year</th>
+      <th>World Bank income group release date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+      <td>AFG</td>
+      <td>AF</td>
+      <td>AFG</td>
+      <td>AF</td>
+      <td>AFG</td>
+      <td>AFG</td>
+      <td>af</td>
+      <td>...</td>
+      <td>Dari, Pashto, Turkic languages, 30 minor langu...</td>
+      <td>Eastern Mediterranean</td>
+      <td>EMR</td>
+      <td>Low income</td>
+      <td>WB_LI</td>
+      <td>Afganistan</td>
+      <td>Afghanistan</td>
+      <td>M</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ALB</td>
+      <td>Albania</td>
+      <td>NaN</td>
+      <td>AL</td>
+      <td>AL</td>
+      <td>ALB</td>
+      <td>AL</td>
+      <td>ALB</td>
+      <td>ALB</td>
+      <td>aa</td>
+      <td>...</td>
+      <td>Albanian, Greek, Vlach, Romani, Slavic dialects</td>
+      <td>Europe</td>
+      <td>EUR</td>
+      <td>Upper middle income</td>
+      <td>WB_UMI</td>
+      <td>Albania</td>
+      <td>Albanie</td>
+      <td>M</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>DZA</td>
+      <td>Algeria</td>
+      <td>NaN</td>
+      <td>DZ</td>
+      <td>AG</td>
+      <td>ALG</td>
+      <td>DZ</td>
+      <td>DZA</td>
+      <td>ALG</td>
+      <td>ae</td>
+      <td>...</td>
+      <td>Arabic, French, Berber dialects</td>
+      <td>Africa</td>
+      <td>AFR</td>
+      <td>Upper middle income</td>
+      <td>WB_UMI</td>
+      <td>Argelia</td>
+      <td>Algrie</td>
+      <td>M</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AND</td>
+      <td>Andorra</td>
+      <td>NaN</td>
+      <td>AND</td>
+      <td>AN</td>
+      <td>AND</td>
+      <td>AD</td>
+      <td>AND</td>
+      <td>AND</td>
+      <td>an</td>
+      <td>...</td>
+      <td>Catalan, French, Castilian, Portuguese</td>
+      <td>Europe</td>
+      <td>EUR</td>
+      <td>High income</td>
+      <td>WB_HI</td>
+      <td>Andorra</td>
+      <td>Andorre</td>
+      <td>M</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AGO</td>
+      <td>Angola</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>AO</td>
+      <td>ANG</td>
+      <td>AO</td>
+      <td>AGO</td>
+      <td>AGL</td>
+      <td>ao</td>
+      <td>...</td>
+      <td>Portuguese, Bantu,  other African languages</td>
+      <td>Africa</td>
+      <td>AFR</td>
+      <td>Lower middle income</td>
+      <td>WB_LMI</td>
+      <td>Angola</td>
+      <td>Angola</td>
+      <td>M</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>WorldBank.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Code</th>
+      <th>DisplayValue</th>
+      <th>URL</th>
+      <th>DS</th>
+      <th>FIPS</th>
+      <th>IOC</th>
+      <th>ISO2</th>
+      <th>ISO</th>
+      <th>ITU</th>
+      <th>MARC</th>
+      <th>...</th>
+      <th>LANGUAGES_EN_2012</th>
+      <th>WHO_REGION</th>
+      <th>WHO_REGION_CODE</th>
+      <th>World Bank income group</th>
+      <th>World Bank income group code</th>
+      <th>SHORTNAMEES</th>
+      <th>SHORTNAMEFR</th>
+      <th>WHOLEGALSTATUS</th>
+      <th>World Bank income group GNI reference year</th>
+      <th>World Bank income group release date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>189</th>
+      <td>ZWE</td>
+      <td>Zimbabwe</td>
+      <td>NaN</td>
+      <td>ZW</td>
+      <td>ZI</td>
+      <td>ZIM</td>
+      <td>ZW</td>
+      <td>ZWE</td>
+      <td>ZWE</td>
+      <td>rh</td>
+      <td>...</td>
+      <td>English, Shona, Sindebele, numerous tribal dia...</td>
+      <td>Africa</td>
+      <td>AFR</td>
+      <td>Low income</td>
+      <td>WB_LI</td>
+      <td>Zimbabwe</td>
+      <td>Zimbabwe</td>
+      <td>M</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>MNE</td>
+      <td>Montenegro</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>MNE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Serbian, Montenegrin, Bosnian, Albanian, others</td>
+      <td>Europe</td>
+      <td>EUR</td>
+      <td>Upper middle income</td>
+      <td>WB_UMI</td>
+      <td>Montenegro</td>
+      <td>Montngro</td>
+      <td>M</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>PRI</td>
+      <td>Puerto Rico</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>PRI</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>High income</td>
+      <td>WB_HI</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>PSE</td>
+      <td>occupied Palestinian territory, including east...</td>
+      <td>NaN</td>
+      <td>PSE</td>
+      <td>NaN</td>
+      <td>PSE</td>
+      <td>NaN</td>
+      <td>PSE</td>
+      <td>PSE</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Arabic</td>
+      <td>Eastern Mediterranean</td>
+      <td>EMR</td>
+      <td>Lower middle income</td>
+      <td>WB_LMI</td>
+      <td>occupied Palestinian territory</td>
+      <td>occupied Palestinian territory</td>
+      <td>NaN</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>SSD</td>
+      <td>South Sudan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SSD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>Africa</td>
+      <td>AFR</td>
+      <td>Low income</td>
+      <td>WB_LI</td>
+      <td>Sudan del Sur</td>
+      <td>Soudan du Sud</td>
+      <td>M</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>count_low_income <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> WorldBank.iterrows():</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'World Bank income group'</span>] <span class="op">==</span> <span class="st">'Low income'</span>:</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        count_low_income <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The number of countries with low income is </span><span class="sc">{</span>count_low_income<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The number of countries with low income is 34</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>count_uppermiddle_income <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> WorldBank.iterrows():</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'World Bank income group'</span>] <span class="op">==</span> <span class="st">'Upper middle income'</span>:</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        count_uppermiddle_income <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The number of countries with upper middle income is </span><span class="sc">{</span>count_uppermiddle_income<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The number of countries with upper middle income is 55</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>count_high_income <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> WorldBank.iterrows():</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'World Bank income group'</span>] <span class="op">==</span> <span class="st">'High income'</span>:</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        count_high_income <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The number of countries with high income is </span><span class="sc">{</span>count_high_income<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The number of countries with high income is 57</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>count_lowermiddle_income <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> WorldBank.iterrows():</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'World Bank income group'</span>] <span class="op">==</span> <span class="st">'Lower middle income'</span>:</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        count_lowermiddle_income <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The number of countries with lower middle income is </span><span class="sc">{</span>count_lowermiddle_income<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The number of countries with lower middle income is 46</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>WorldBank[<span class="st">'World Bank income group'</span>].replace([<span class="st">'Low-income'</span>, <span class="st">'Low Income'</span>], <span class="st">'Low income'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>WorldBank[<span class="st">'World Bank income group'</span>].replace([<span class="st">'High-income'</span>, <span class="st">'High Income'</span>], <span class="st">'High income'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>income_counts <span class="op">=</span> WorldBank[<span class="st">'World Bank income group'</span>].value_counts()</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>plt.pie(income_counts, labels<span class="op">=</span>income_counts.index)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Countries by Income Group'</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled1_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
